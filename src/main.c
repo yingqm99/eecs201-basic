@@ -69,7 +69,9 @@ int main(int argc, char *argv[])
     case STATUS_UNSUPPORTED:
         fprintf(stderr, "Unsupported operation: %s\n", op_to_string(op));
         return 4;
-    // Issue #221: handle div by 0
+    case STATUS_DIV_BY_ZERO:
+	fprintf(stderr, "Divide by Zero\n");
+	return 5;
     }
 
     return 255;

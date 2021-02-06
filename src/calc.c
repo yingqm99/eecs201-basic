@@ -26,7 +26,7 @@ enum status calculate(int arg1, int arg2, enum op op, int *result)
        *result = arg1 * arg2;
 	return STATUS_OKAY;       
     case OP_DIV:
-        // Issue #221: handle div by 0
+        if (arg2 == 0) return STATUS_DIV_BY_ZERO;
         *result = arg1 / arg2;
         return STATUS_OKAY;
     }
